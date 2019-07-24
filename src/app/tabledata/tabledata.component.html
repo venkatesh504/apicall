@@ -1,0 +1,34 @@
+<div class="container">
+  <h2>Table Head Colors</h2>
+  <p>The .thead-dark class adds a black background to table headers, and the .thead-light class adds a grey background
+    to table headers:</p>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th>Sno</th>
+        <th>User ID</th>
+        <th>ID</th>
+        <th>Title</th>
+        <th>body</th>
+        <th>comments</th>
+
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let post of posts | paginate: { itemsPerPage:10, currentPage: p } ; let i = index">
+
+        <td>{{i+1}}</td>
+        <td> {{post.userId}}</td>
+        <td>{{post.id}}</td>
+        <td>{{post.title}}</td>
+        <td>{{post.body}}</td>
+        <td><button (click)="comment(post.id)"></button></td>
+
+      </tr>
+    </tbody>
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+
+
+</div>
